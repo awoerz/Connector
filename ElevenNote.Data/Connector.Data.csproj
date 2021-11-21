@@ -57,7 +57,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contact.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202111160038084_NewMigration.cs" />
+    <Compile Include="Migrations\202111160038084_NewMigration.designer.cs">
+      <DependentUpon>202111160038084_NewMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111211402514_ChangingContact.cs" />
+    <Compile Include="Migrations\202111211402514_ChangingContact.designer.cs">
+      <DependentUpon>202111211402514_ChangingContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111211444402_UpdatedContactRequires.cs" />
+    <Compile Include="Migrations\202111211444402_UpdatedContactRequires.designer.cs">
+      <DependentUpon>202111211444402_UpdatedContactRequires.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +123,17 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202111160038084_NewMigration.resx">
+      <DependentUpon>202111160038084_NewMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111211402514_ChangingContact.resx">
+      <DependentUpon>202111211402514_ChangingContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111211444402_UpdatedContactRequires.resx">
+      <DependentUpon>202111211444402_UpdatedContactRequires.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
