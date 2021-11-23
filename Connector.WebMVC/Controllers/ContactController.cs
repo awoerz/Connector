@@ -1,4 +1,7 @@
-﻿using Connector.WebMVC.Models;
+﻿using Connector.Models;
+using Connector.Services;
+using Connector.WebMVC.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +16,8 @@ namespace Connector.WebMVC.Controllers
         // GET: Contact
         public ActionResult Index()
         {
-            var model = new ContactListItem[0];
+            var service = CreateContactService();
+            var model = service.GetContacts();
             return View(model);
         }
 
@@ -21,6 +25,35 @@ namespace Connector.WebMVC.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ContactCreate model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = CreateContactService();
+
+            if (service.CreateContact(model))
+            {
+                TempData["SaveResult"] = "Your note was created.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Contact could not be created.");
+
+            return View(model);
+        }
+
+        private ContactService CreateContactService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ContactService(userId);
+            return service;
         }
     }
 }

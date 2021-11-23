@@ -18,20 +18,23 @@ namespace ElevenNote.Data
         [Key]
         public int ContactId { get; set; }
         [Required]
+        public Guid OwnerId { get; set; }
+        [Required]
         public string Name { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
         [Phone]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         [Display(Name = "Notes")]
         public List<int> NoteIds { get; set; }
         [Display(Name = "Date Contact Created")]
-        public DateTime Created { get; set; }
+        public DateTimeOffset Created { get; set; }
         [Display(Name = "Date Last Contacted")]
-        public DateTime LastContacted { get; set; }
+        public DateTimeOffset LastContacted { get; set; }
         [Display(Name = "Primary Contact Method")]
         public ContactMethod MyProperty { get; set; }
     }
 }
+ 

@@ -71,6 +71,18 @@
     <Compile Include="Migrations\202111211444402_UpdatedContactRequires.designer.cs">
       <DependentUpon>202111211444402_UpdatedContactRequires.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111231406396_UpdatedContactWithOwnerId.cs" />
+    <Compile Include="Migrations\202111231406396_UpdatedContactWithOwnerId.designer.cs">
+      <DependentUpon>202111231406396_UpdatedContactWithOwnerId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111231434383_UpdatedContactPhoneNumberType.cs" />
+    <Compile Include="Migrations\202111231434383_UpdatedContactPhoneNumberType.designer.cs">
+      <DependentUpon>202111231434383_UpdatedContactPhoneNumberType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111231440111_UpdatedContactCreatedType.cs" />
+    <Compile Include="Migrations\202111231440111_UpdatedContactCreatedType.designer.cs">
+      <DependentUpon>202111231440111_UpdatedContactCreatedType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,6 +145,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111211444402_UpdatedContactRequires.resx">
       <DependentUpon>202111211444402_UpdatedContactRequires.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111231406396_UpdatedContactWithOwnerId.resx">
+      <DependentUpon>202111231406396_UpdatedContactWithOwnerId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111231434383_UpdatedContactPhoneNumberType.resx">
+      <DependentUpon>202111231434383_UpdatedContactPhoneNumberType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111231440111_UpdatedContactCreatedType.resx">
+      <DependentUpon>202111231440111_UpdatedContactCreatedType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +109,16 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Connector.Models\Connector.Models.csproj">
+      <Project>{58923f19-81ca-4126-b4f7-23916de26d45}</Project>
+      <Name>Connector.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElevenNote.Data\Connector.Data.csproj">
+      <Project>{bde9dd3a-4965-47e4-bd6d-a041250ab927}</Project>
+      <Name>Connector.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
