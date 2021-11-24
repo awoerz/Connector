@@ -20,6 +20,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ContactId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
@@ -41,6 +44,9 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ContactId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
@@ -56,9 +62,9 @@
                 @Html.DisplayFor(modelItem => item.LastContacted)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { id=item.ContactId } ) |
+                @Html.ActionLink("Details", "Details", new { id = item.ContactId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ContactId })
             </td>
         </tr>
     }

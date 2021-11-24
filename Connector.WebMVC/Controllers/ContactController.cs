@@ -13,6 +13,7 @@ namespace Connector.WebMVC.Controllers
     [Authorize]
     public class ContactController : Controller
     {
+        //View All Cotnacts
         // GET: Contact
         public ActionResult Index()
         {
@@ -27,6 +28,7 @@ namespace Connector.WebMVC.Controllers
             return View();
         }
 
+        //Create a Contact
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ContactCreate model)
@@ -47,6 +49,56 @@ namespace Connector.WebMVC.Controllers
             ModelState.AddModelError("", "Contact could not be created.");
 
             return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateContactService();
+            var model = svc.GetContactById(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateContactService();
+            var detail = service.GetContactById(id);
+            var model = new ContactEdit
+            {
+                ContactId = detail.ContactId,
+                Name = detail.Name,
+                Email = detail.Email,
+                PhoneNumber = detail.PhoneNumber,
+                NoteIds = detail.NoteIds,
+                LastContacted = detail.LastContacted,
+                MyProperty = detail.MyProperty
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ContactEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.ContactId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateContactService();
+
+            if(service.UpdateContact(model))
+            {
+                TempData["SaveResult"] = "You contact was updated";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your contact could not be updated.");
+            return View();
         }
 
         private ContactService CreateContactService()

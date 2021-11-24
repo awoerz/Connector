@@ -45,12 +45,53 @@ namespace Connector.Services
                     .Where(e => e.OwnerId == _userId)
                     .Select(e => new ContactListItem
                     {
+                        ContactId = e.ContactId,
                         Name = e.Name,
                         Email = e.Email,
                         PhoneNumber = e.PhoneNumber,
                         Created = e.Created
                     });
                 return query.ToArray();
+            }
+        }
+    
+        public ContactDetail GetContactById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Contacts.Single(
+                        e => e.ContactId == id && e.OwnerId == _userId
+                     );
+
+                return new ContactDetail
+                {
+                    ContactId = entity.ContactId,
+                    Name = entity.Name,
+                    Email = entity.Email,
+                    PhoneNumber = entity.PhoneNumber,
+                    NoteIds = entity.NoteIds,
+                    Created = entity.Created,
+                    LastContacted = entity.LastContacted,
+                    MyProperty = entity.MyProperty
+                };
+            }
+        }
+
+        public bool UpdateContact(ContactEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Contacts.Single(
+                        e => e.ContactId == model.ContactId && e.OwnerId == _userId
+                    );
+
+                entity.Name = model.Name;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.Email = model.Email;
+                entity.NoteIds = model.NoteIds;
+                entity.MyProperty = model.MyProperty;
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
