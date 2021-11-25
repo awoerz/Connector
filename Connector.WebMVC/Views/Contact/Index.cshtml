@@ -5,7 +5,7 @@
 
 <div class="d-flex justify-content-between my-5">
     <h2>Contacts</h2>
-    @Html.ActionLink("Create New +", "Create", null, htmlAttributes: new { @class = "btn btn-primary"})
+    @Html.ActionLink("Create New +", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light"})
 </div>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -26,16 +26,16 @@
                     <div class="card-body my-3">
                         <h5>@Html.DisplayFor(modelItem => item.Name)</h5>
                         <p class="card-text">
-                        | @Html.DisplayNameFor(model => model.Email) :<br />
-                        @Html.DisplayFor(modelItem => item.Email)<br />
-                        | @Html.DisplayNameFor(model => model.PhoneNumber) :<br />
-                        @Html.DisplayFor(modelItem => item.PhoneNumber)<br />
-                        | @Html.DisplayNameFor(model => model.MyProperty) :<br />
+                            <i class="bi bi-envelope"></i> @Html.DisplayFor(modelItem => item.Email)<br />
+                        <i class="bi bi-phone"></i> @Html.DisplayFor(modelItem => item.PhoneNumber)<br />
+                        </p>
+                        <p>
+                        Preferred Contact Method:<br />
                         @Html.DisplayFor(modelItem => item.MyProperty)</p>
 
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ContactId }, htmlAttributes: new { @class = "btn btn-primary" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ContactId }, htmlAttributes: new { @class = "btn btn-primary" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ContactId }, htmlAttributes: new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ContactId }, htmlAttributes: new { @class = "btn btn-outline-light" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ContactId }, htmlAttributes: new { @class = "btn btn-outline-light" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ContactId }, htmlAttributes: new { @class = "btn btn-outline-light" })
                     </div>
                 </div>
             </div>
@@ -43,16 +43,3 @@
 
     </div>
 </div>
-
-
-@*
-@Html.DisplayNameFor(model => model.Email)
-@Html.DisplayNameFor(model => model.PhoneNumber)
-@Html.DisplayNameFor(model => model.MyProperty)
-@Html.DisplayNameFor(model => model.LastContacted)
-
-@Html.DisplayFor(modelItem => item.Email)
-@Html.DisplayFor(modelItem => item.PhoneNumber)
-@Html.DisplayFor(modelItem => item.MyProperty)
-@Html.DisplayFor(modelItem => item.LastContacted)
-*@

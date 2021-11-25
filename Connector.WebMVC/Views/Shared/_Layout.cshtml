@@ -6,17 +6,19 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <style>
         .custom-bg-color {
             background-color: #1D2228;
         }
+
         .accent-color {
-            background-color: #438945;
+            background-color: #365FB7;
         }
     </style>
 </head>
 <body class="custom-bg-color">
-    <div class="navbar navbar-expand-lg navbar-dark custom-bg-color">
+    <div class="navbar navbar-expand-lg navbar-dark accent-color">
         <div class="container">
             @Html.ActionLink("Connector", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
