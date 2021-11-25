@@ -1,4 +1,4 @@
-﻿using ElevenNote.Data;
+﻿using Connector.Data;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,6 +13,7 @@ namespace Connector.Models
         public string Email { get; set; }
         [Display(Name = "Contact Phone Number")]
         public string PhoneNumber { get; set; }
+        [Display(Name = "Date Created")]
         public DateTimeOffset Created { get; set; }
         [Display(Name = "Date Last Contacted")]
         public DateTimeOffset LastContacted { get; set; }

@@ -1,4 +1,4 @@
-﻿using ElevenNote.Data;
+﻿using Connector.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +11,9 @@ namespace Connector.Models
     public class ContactDetail
     {
         public int ContactId { get; set; }
+        [Display(Name = "Contact Name")]
         public string Name { get; set; }
+        [Display(Name = "Contact Email")]
         public string Email { get; set; }
         [Display(Name = "Created")]
         public string PhoneNumber { get; set; }
@@ -20,6 +22,7 @@ namespace Connector.Models
         public DateTimeOffset Created { get; set; }
         [Display(Name = "Last Time Contacted ")]
         public DateTimeOffset LastContacted { get; set; }
+        [Display(Name = "Primary Contact Method")]
         public ContactMethod MyProperty { get; set; }
     }
 }

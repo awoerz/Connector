@@ -1,6 +1,7 @@
 ﻿using Connector.Models;
 using Connector.Services;
 using Connector.WebMVC.Models;
+using Connector.Data;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -99,6 +100,28 @@ namespace Connector.WebMVC.Controllers
 
             ModelState.AddModelError("", "Your contact could not be updated.");
             return View();
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateContactService();
+            var model = svc.GetContactById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateContactService();
+
+            service.DeleteContact(id);
+
+            TempData["SaveResult"] = "Your contact was deleted";
+            return RedirectToAction("Index");
         }
 
         private ContactService CreateContactService()

@@ -26,7 +26,8 @@ namespace Connector.Services
                 OwnerId = _userId,
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
-                Created = DateTime.Now
+                Created = DateTime.Now,
+                MyProperty = model.MyProperty
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -49,7 +50,8 @@ namespace Connector.Services
                         Name = e.Name,
                         Email = e.Email,
                         PhoneNumber = e.PhoneNumber,
-                        Created = e.Created
+                        Created = e.Created,
+                        MyProperty = e.MyProperty
                     });
                 return query.ToArray();
             }
@@ -93,6 +95,19 @@ namespace Connector.Services
 
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        public bool DeleteContact(int contactId)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Contacts.Single(
+                        e => e.ContactId == contactId && e.OwnerId == _userId
+                    );
+
+                ctx.Contacts.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            };
         }
     }
 }

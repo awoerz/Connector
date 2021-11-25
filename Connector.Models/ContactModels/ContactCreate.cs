@@ -1,4 +1,4 @@
-﻿using ElevenNote.Data;
+﻿using Connector.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

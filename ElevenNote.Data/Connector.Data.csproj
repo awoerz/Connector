@@ -83,6 +83,10 @@
     <Compile Include="Migrations\202111231440111_UpdatedContactCreatedType.designer.cs">
       <DependentUpon>202111231440111_UpdatedContactCreatedType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111250257259_UpdatedContactNamespace.cs" />
+    <Compile Include="Migrations\202111250257259_UpdatedContactNamespace.designer.cs">
+      <DependentUpon>202111250257259_UpdatedContactNamespace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -154,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111231440111_UpdatedContactCreatedType.resx">
       <DependentUpon>202111231440111_UpdatedContactCreatedType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111250257259_UpdatedContactNamespace.resx">
+      <DependentUpon>202111250257259_UpdatedContactNamespace.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
