@@ -8,20 +8,46 @@
         max-height: 300px;
     }
 </style>
-<div class="container text-light my-3">
+<div class="container text-light">
     <h1>Connector CRM</h1>
     <h3>Focussed On Your Connections.</h3>
 </div>
 
-<div class="container d-flex flex-wrap justify-content-evenly my-5">
-    <img src="~/Content/images/contacts-img.svg" alt="contact-img" class="custom-img-size"/>
-    <br />
-    <div class="d-flex flex-column justify-content-center mx-3">
-        <h2>Manage Contacts</h2>
-        <p>Create, Update, and Explore All Your Contacts Here:</p>
-        <div class="d-flex justify-content-start">
-            @Html.ActionLink("Contacts", "Index", "Contact", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-6 d-flex justify-content-center px-5">
+            <img src="~/Content/images/contacts-img.svg" alt="contact-img" class="custom-img-size" />
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+            <h2>Manage Contacts</h2>
+            <p>Create, Update, and Explore All Your Contacts Here:</p>
+            <div class="d-flex justify-content-start">
+                @Html.ActionLink("Contacts", "Index", "Contact", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+            </div>
         </div>
     </div>
-
+    <div class="row my-5 p-5">
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-md-end px-5">
+            <h2>Manage Accounts</h2>
+            <p>Create, Update, and Explore All Your Contacts Here:</p>
+            <div class="d-flex justify-content-start">
+                @Html.ActionLink("Accounts", "Index", "Account", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+            </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+            <img src="~/Content/images/accounts-img.svg" alt="account-img" class="custom-img-size" />
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-md-6 d-flex justify-content-center">
+            <img src="~/Content/images/tasks-img.svg" alt="tasks-img" class="custom-img-size" />
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center px-5">
+            <h2>Manage Tasks</h2>
+            <p>Create, Update, and Explore All Your Contacts Here:</p>
+            <div class="d-flex justify-content-start">
+                @Html.ActionLink("Tasks", "Index", "Task", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+            </div>
+        </div>
+    </div>
 </div> 
