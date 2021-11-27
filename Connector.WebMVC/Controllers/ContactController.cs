@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Connector.Models.NoteModels;
+using Connector.Models.ContactModels;
 
 namespace Connector.WebMVC.Controllers
 {
@@ -43,7 +45,7 @@ namespace Connector.WebMVC.Controllers
 
             if (service.CreateContact(model))
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Your contact was created.";
                 return RedirectToAction("Index");
             }
 
@@ -56,7 +58,6 @@ namespace Connector.WebMVC.Controllers
         {
             var svc = CreateContactService();
             var model = svc.GetContactById(id);
-
             return View(model);
         }
 
@@ -70,7 +71,7 @@ namespace Connector.WebMVC.Controllers
                 Name = detail.Name,
                 Email = detail.Email,
                 PhoneNumber = detail.PhoneNumber,
-                NoteIds = detail.NoteIds,
+                Notes = detail.Notes,
                 LastContacted = detail.LastContacted,
                 MyProperty = detail.MyProperty
             };
@@ -100,6 +101,43 @@ namespace Connector.WebMVC.Controllers
 
             ModelState.AddModelError("", "Your contact could not be updated.");
             return View();
+        }
+        
+        public ActionResult AddingNoteToContact(int id)
+        {
+            var svc = CreateContactService();
+            var contact = svc.GetContactById(id);
+            var model = new NoteCreate();
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddingNoteToContact(int id, NoteCreate model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var svc = CreateContactService();
+            var contact = svc.GetContactById(id);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var noteService = new NoteService(userId);
+
+            if (noteService.CreateNote(model))
+            {
+                var noteIdToPass = noteService.GetNotes().ToList().Last().NoteId;
+                svc.AddNote(id, noteIdToPass);
+                TempData["SaveResult"] = "Your contact was created.";
+                return RedirectToAction("Details", new { id = id});
+            }
+
+            ModelState.AddModelError("", "Note could not be created.");
+
+            return View(model);
         }
 
         [ActionName("Delete")]

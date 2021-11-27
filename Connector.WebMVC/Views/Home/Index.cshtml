@@ -20,17 +20,17 @@
         </div>
         <div class="col-md-6 d-flex flex-column justify-content-center">
             <h2>Manage Contacts</h2>
-            <p>Create, Update, and Explore All Your Contacts Here:</p>
+            <p>Create, update, and explore all your contacts here.</p>
             <div class="d-flex justify-content-start">
                 @Html.ActionLink("Contacts", "Index", "Contact", null, htmlAttributes: new { @class = "btn btn-outline-light" })
             </div>
         </div>
     </div>
     <div class="row my-5 p-5">
-        <div class="col-md-6 d-flex flex-column justify-content-center align-items-md-end px-5">
-            <h2>Manage Accounts</h2>
-            <p>Create, Update, and Explore All Your Contacts Here:</p>
-            <div class="d-flex justify-content-start">
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-end px-5">
+            <h2>Manage Customer Accounts</h2>
+            <p style="text-align: end">Never forget who needs your help by maintaining your customers here.</p>
+            <div>
                 @Html.ActionLink("Accounts", "Index", "Account", null, htmlAttributes: new { @class = "btn btn-outline-light" })
             </div>
         </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="col-md-6 d-flex flex-column justify-content-center px-5">
             <h2>Manage Tasks</h2>
-            <p>Create, Update, and Explore All Your Contacts Here:</p>
+            <p>Don't lose track of what you need to complete. Manage tasks here. </p>
             <div class="d-flex justify-content-start">
                 @Html.ActionLink("Tasks", "Index", "Task", null, htmlAttributes: new { @class = "btn btn-outline-light" })
             </div>

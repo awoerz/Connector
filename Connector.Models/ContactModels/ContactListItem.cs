@@ -16,8 +16,9 @@ namespace Connector.Models
         [Display(Name = "Date Created")]
         public DateTimeOffset Created { get; set; }
         [Display(Name = "Date Last Contacted")]
-        public DateTimeOffset LastContacted { get; set; }
+        public DateTimeOffset? LastContacted { get; set; }
         [Display(Name = "Primary Contact Method")]
         public ContactMethod MyProperty { get; set; }
+        public IEquatable<Note> Notes { get; set; }
     }
 }

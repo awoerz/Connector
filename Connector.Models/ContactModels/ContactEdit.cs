@@ -1,4 +1,5 @@
 ﻿using Connector.Data;
+using Connector.Models.NoteModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,8 +15,8 @@ namespace Connector.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public List<int> NoteIds { get; set; }
-        public DateTimeOffset LastContacted { get; set; }
+        public IEnumerable<NoteDetail> Notes { get; set; }
+        public DateTimeOffset? LastContacted { get; set; }
         [Display(Name = "Primary Contact Method")]
         public ContactMethod MyProperty { get; set; }
     }

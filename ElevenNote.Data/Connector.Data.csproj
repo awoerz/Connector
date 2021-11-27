@@ -8,8 +8,8 @@
     <ProjectGuid>{BDE9DD3A-4965-47E4-BD6D-A041250AB927}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ElevenNote.Data</RootNamespace>
-    <AssemblyName>ElevenNote.Data</AssemblyName>
+    <RootNamespace>Connector.Data</RootNamespace>
+    <AssemblyName>Connector.Data</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
+    <Compile Include="CustomerAccount.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202111160038084_NewMigration.cs" />
     <Compile Include="Migrations\202111160038084_NewMigration.designer.cs">
@@ -87,7 +88,32 @@
     <Compile Include="Migrations\202111250257259_UpdatedContactNamespace.designer.cs">
       <DependentUpon>202111250257259_UpdatedContactNamespace.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111260219074_AnotherContactTableUpdate.cs" />
+    <Compile Include="Migrations\202111260219074_AnotherContactTableUpdate.designer.cs">
+      <DependentUpon>202111260219074_AnotherContactTableUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260229556_SmallUpdateToNotes.cs" />
+    <Compile Include="Migrations\202111260229556_SmallUpdateToNotes.designer.cs">
+      <DependentUpon>202111260229556_SmallUpdateToNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260356333_UpdatingContactYetAgainWithForeignKeyElement.cs" />
+    <Compile Include="Migrations\202111260356333_UpdatingContactYetAgainWithForeignKeyElement.designer.cs">
+      <DependentUpon>202111260356333_UpdatingContactYetAgainWithForeignKeyElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111272027330_TryingToAddNotesToContact.cs" />
+    <Compile Include="Migrations\202111272027330_TryingToAddNotesToContact.designer.cs">
+      <DependentUpon>202111272027330_TryingToAddNotesToContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111272301325_FixingMyStupidNoteErrorAgain.cs" />
+    <Compile Include="Migrations\202111272301325_FixingMyStupidNoteErrorAgain.designer.cs">
+      <DependentUpon>202111272301325_FixingMyStupidNoteErrorAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111272314599_AnotherFrickenMigration.cs" />
+    <Compile Include="Migrations\202111272314599_AnotherFrickenMigration.designer.cs">
+      <DependentUpon>202111272314599_AnotherFrickenMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +187,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111250257259_UpdatedContactNamespace.resx">
       <DependentUpon>202111250257259_UpdatedContactNamespace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260219074_AnotherContactTableUpdate.resx">
+      <DependentUpon>202111260219074_AnotherContactTableUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260229556_SmallUpdateToNotes.resx">
+      <DependentUpon>202111260229556_SmallUpdateToNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260356333_UpdatingContactYetAgainWithForeignKeyElement.resx">
+      <DependentUpon>202111260356333_UpdatingContactYetAgainWithForeignKeyElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111272027330_TryingToAddNotesToContact.resx">
+      <DependentUpon>202111272027330_TryingToAddNotesToContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111272301325_FixingMyStupidNoteErrorAgain.resx">
+      <DependentUpon>202111272301325_FixingMyStupidNoteErrorAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111272314599_AnotherFrickenMigration.resx">
+      <DependentUpon>202111272314599_AnotherFrickenMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

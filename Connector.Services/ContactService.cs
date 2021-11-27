@@ -1,5 +1,6 @@
 ﻿using Connector.Data;
 using Connector.Models;
+using Connector.Models.NoteModels;
 using ElevenNote.Data;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ namespace Connector.Services
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
                 Created = DateTime.Now,
-                MyProperty = model.MyProperty
+                MyProperty = model.MyProperty,
+                Notes = (ICollection<Note>)Enumerable.Empty<Note>()
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -64,6 +66,14 @@ namespace Connector.Services
                 var entity = ctx.Contacts.Single(
                         e => e.ContactId == id && e.OwnerId == _userId
                      );
+                var notes = ctx.Notes.Where(e => e.ContactId == id).Select(e => new NoteDetail
+                {
+                    NoteId = e.NoteId,
+                    Content = e.Content,
+                    Created = e.Created,
+                    Updated = e.Updated,
+                    ContactId = (int)e.ContactId
+                });
 
                 return new ContactDetail
                 {
@@ -71,7 +81,7 @@ namespace Connector.Services
                     Name = entity.Name,
                     Email = entity.Email,
                     PhoneNumber = entity.PhoneNumber,
-                    NoteIds = entity.NoteIds,
+                    Notes = notes.ToArray(),
                     Created = entity.Created,
                     LastContacted = entity.LastContacted,
                     MyProperty = entity.MyProperty
@@ -90,13 +100,31 @@ namespace Connector.Services
                 entity.Name = model.Name;
                 entity.PhoneNumber = model.PhoneNumber;
                 entity.Email = model.Email;
-                entity.NoteIds = model.NoteIds;
+                entity.Notes = (ICollection<Note>)model.Notes;
                 entity.MyProperty = model.MyProperty;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
+        public bool AddNote(int contactId, int noteId)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Contacts.Single(e => e.ContactId == contactId);
+                var note = ctx.Notes.Single(e => e.NoteId == noteId);
+                if(entity.Notes != null)
+                {
+                    entity.Notes.Add(note);
+                }
+                else
+                {
+                    entity.Notes = new List<Note>();
+                    entity.Notes.Add(note);
+                }
+                return ctx.SaveChanges() == 1;
+            }
+        }
         public bool DeleteContact(int contactId)
         {
             using(var ctx = new ApplicationDbContext())

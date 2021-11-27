@@ -1,4 +1,5 @@
 ﻿using Connector.Data;
+using Connector.Models.NoteModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,13 +16,13 @@ namespace Connector.Models
         public string Name { get; set; }
         [Display(Name = "Contact Email")]
         public string Email { get; set; }
-        [Display(Name = "Created")]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
-        public List<int> NoteIds { get; set; }
+        public IEnumerable<NoteDetail> Notes { get; set; }
         [Display(Name = "Contact Created")]
         public DateTimeOffset Created { get; set; }
         [Display(Name = "Last Time Contacted ")]
-        public DateTimeOffset LastContacted { get; set; }
+        public DateTimeOffset? LastContacted { get; set; }
         [Display(Name = "Primary Contact Method")]
         public ContactMethod MyProperty { get; set; }
     }

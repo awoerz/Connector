@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,14 +28,14 @@ namespace Connector.Data
         [Required]
         [Phone]
         public string PhoneNumber { get; set; }
-        [Display(Name = "Notes")]
-        public List<int> NoteIds { get; set; }
-        [Display(Name = "Date Contact Created")]
         public DateTimeOffset Created { get; set; }
-        [Display(Name = "Date Last Contacted")]
-        public DateTimeOffset LastContacted { get; set; }
-        [Display(Name = "Primary Contact Method")]
+        public DateTimeOffset? LastContacted { get; set; }
         public ContactMethod MyProperty { get; set; }
+        public ICollection<Note> Notes { get; set; }
+        
+        [ForeignKey(nameof(CustomerAccount))]
+        public int CustomerAccountId { get; set; }
+        public virtual CustomerAccount CustomerAccount { get; set; }
     }
 }
  

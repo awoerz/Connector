@@ -6,69 +6,82 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>ContactDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ContactId)
-        </dd>
-
-        <dt>
+<div class="row my-4">
+    <div class="col d-flex flex-column">
+        <div>
             @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
+        </div>
+        <div>
             @Html.DisplayFor(model => model.Name)
-        </dd>
+        </div>
 
-        <dt>
+    </div>
+    <div class="col d-flex flex-column">
+        <div>
             @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
+        </div>
+        <div>
             @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
+        </div>
+    </div>
+    <div class="col d-flex flex-column">
+        <div>        
             @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
+        </div>
+        <div>
             @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MyProperty)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MyProperty)
-        </dd>
-
-        <dt>
+        </div>
+    </div>
+    <div class="col d-flex flex-column">
+        <div>
             @Html.DisplayNameFor(model => model.Created)
-        </dt>
-
-        <dd>
+        </div>
+        <div>
             @Html.DisplayFor(model => model.Created)
-        </dd>
-
-        <dt>
+        </div>
+    </div>
+    <div class="col d-flex flex-column">
+        <div>
             @Html.DisplayNameFor(model => model.LastContacted)
-        </dt>
-
-        <dd>
+        </div>
+        <div>
             @Html.DisplayFor(model => model.LastContacted)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
 </div>
+
+<table class="table table-striped table-hover text-light my-3">
+    <thead>
+        <tr>
+            <th scope="col">
+                Note
+            </th>
+            <th scope="col">
+                Created
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Notes != null)
+        {
+            foreach (var item in Model.Notes)
+            {
+                <tr>
+                    <td class="text-light">
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+                    <td class="text-light">
+                        @Html.DisplayFor(modelItem => item.Created)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Add Note", "CreateForContact", "Note",new {id = Model.ContactId}, htmlAttributes: new { @class = "btn btn-outline-light mb-4" })
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }, htmlAttributes: new { @class = "btn btn-outline-light"}) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
