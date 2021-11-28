@@ -60,7 +60,7 @@ namespace Connector.Services
         {
             using(var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Contacts.Where(e => e.CustomerAccountId == null).Select(
+                var query = ctx.Contacts.Where(e => e.CustomerAccountId == null || e.CustomerAccountId == 0 || e.CustomerAccountId < 1).Select(
                     e=> new ContactListItem
                     {
                         ContactId = e.ContactId,

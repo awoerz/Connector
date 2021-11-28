@@ -101,6 +101,14 @@ namespace Connector.WebMVC.Controllers
 
         public ActionResult AddContactToAccount()
         {
+            var service = CreateContactService();
+            ViewBag.Contacts = service.GetUnassignedToAccountContacts().Select(
+                    c => new SelectListItem
+                    {
+                        Value = c.ContactId.ToString(),
+                        Text = c.Name
+                    }
+                );
             return View(new ContactSelect());
         }
         [HttpPost]
@@ -108,19 +116,14 @@ namespace Connector.WebMVC.Controllers
         public ActionResult AddContactToAccount(int id, ContactSelect model)
         {
             var service = CreateContactService();
-            ViewBag.Contacts = service.GetUnassignedToAccountContacts().Select(
-                c => new SelectListItem
-                {
-                    Text = c.Name,
-                    Value = c.ContactId.ToString()
-                }
-                );
+            var unAssignedContacts = service.GetUnassignedToAccountContacts();
 
+            TempData["SomeBS"] = "More Garbarge";
 
             if(service.AddAccountToContact(id, model))
             {
                 TempData["SaveResult"] = "You contact was updated";
-                return RedirectToAction("Details", "Account", new { id = id });
+                return RedirectToAction("Details", "CustomerAccount", new { id = id });
             }
 
             ModelState.AddModelError("", "Your contact could not be updated.");

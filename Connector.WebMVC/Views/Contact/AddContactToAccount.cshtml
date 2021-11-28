@@ -5,45 +5,49 @@
 }
 
 <h2>AddContactToAccount</h2>
-
+<p class="text-light">
+    @ViewBag.Stupid
+</p>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<div class="form-horizontal">
-    <h4>ContactSelect</h4>
-    <hr />
-    @if (ViewBag.Contacts != null)
-    {
+    <div class="form-horizontal">
 
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ContactId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ContactId, new SelectList(ViewBag.Contacts, "Value", "Text"), new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ContactId, "", new { @class = "text-danger" })
+        @if (ViewBag.Contacts != null)
+        {
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.ContactId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.ContactId, new SelectList(ViewBag.Contacts, "Value", "Text"), htmlAttributes: new { @class = "form-control form-select"})
+                    @Html.ValidationMessageFor(model => model.ContactId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ContactId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ContactId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ContactId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        <div class="form-group my-4">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-outline-light" />
             </div>
         </div>
-    } else {
-    <div class="form-group">
-        @Html.LabelFor(model => model.ContactId, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ContactId, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ContactId, "", new { @class = "text-danger" })
-        </div>
     </div>
-    }
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "CustomerAccount")
 </div>
 
 @section Scripts {
