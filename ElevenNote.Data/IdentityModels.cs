@@ -36,6 +36,7 @@ namespace Connector.Data
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<CustomerAccount> CustomerAccounts {get; set;}
+        public DbSet<AccountTask> AccountTasks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

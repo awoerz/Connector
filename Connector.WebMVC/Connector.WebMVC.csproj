@@ -171,6 +171,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountTaskController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CustomerAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -295,6 +296,8 @@
     <Content Include="Views\CustomerAccount\Delete.cshtml" />
     <Content Include="Views\Note\CreateForAccount.cshtml" />
     <Content Include="Views\Contact\AddContactToAccount.cshtml" />
+    <Content Include="Views\AccountTask\Index.cshtml" />
+    <Content Include="Views\AccountTask\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,7 +25,7 @@ namespace Connector.Services
                 OwnerId = _userId,
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
-                Created = DateTime.Now,
+                Created = DateTimeOffset.Now,
                 MyProperty = model.MyProperty,
                 Notes = (ICollection<Note>)Enumerable.Empty<Note>()
             };
@@ -55,7 +55,6 @@ namespace Connector.Services
                 return query.ToArray();
             }
         }
-        
         public IEnumerable<ContactListItem> GetUnassignedToAccountContacts()
         {
             using(var ctx = new ApplicationDbContext())
@@ -74,7 +73,6 @@ namespace Connector.Services
                 return query.ToArray();
             }
         }
-
         public bool AddAccountToContact(int customerAccountId, ContactSelect model)
         {
             using(var ctx = new ApplicationDbContext())
@@ -85,8 +83,6 @@ namespace Connector.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-
         public ContactDetail GetContactById(int id)
         {
             using (var ctx = new ApplicationDbContext())

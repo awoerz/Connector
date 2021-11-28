@@ -16,5 +16,6 @@ namespace Connector.Data
         public string Name { get; set; }
         public ICollection<Contact> Contacts { get; set; }
         public ICollection<Note> Notes { get; set; }
+        public ICollection<AccountTask> Tasks { get; set; }
     }
 }

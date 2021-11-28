@@ -60,77 +60,14 @@
     <Compile Include="Contact.cs" />
     <Compile Include="CustomerAccount.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202111160038084_NewMigration.cs" />
-    <Compile Include="Migrations\202111160038084_NewMigration.designer.cs">
-      <DependentUpon>202111160038084_NewMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111211402514_ChangingContact.cs" />
-    <Compile Include="Migrations\202111211402514_ChangingContact.designer.cs">
-      <DependentUpon>202111211402514_ChangingContact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111211444402_UpdatedContactRequires.cs" />
-    <Compile Include="Migrations\202111211444402_UpdatedContactRequires.designer.cs">
-      <DependentUpon>202111211444402_UpdatedContactRequires.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111231406396_UpdatedContactWithOwnerId.cs" />
-    <Compile Include="Migrations\202111231406396_UpdatedContactWithOwnerId.designer.cs">
-      <DependentUpon>202111231406396_UpdatedContactWithOwnerId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111231434383_UpdatedContactPhoneNumberType.cs" />
-    <Compile Include="Migrations\202111231434383_UpdatedContactPhoneNumberType.designer.cs">
-      <DependentUpon>202111231434383_UpdatedContactPhoneNumberType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111231440111_UpdatedContactCreatedType.cs" />
-    <Compile Include="Migrations\202111231440111_UpdatedContactCreatedType.designer.cs">
-      <DependentUpon>202111231440111_UpdatedContactCreatedType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111250257259_UpdatedContactNamespace.cs" />
-    <Compile Include="Migrations\202111250257259_UpdatedContactNamespace.designer.cs">
-      <DependentUpon>202111250257259_UpdatedContactNamespace.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111260219074_AnotherContactTableUpdate.cs" />
-    <Compile Include="Migrations\202111260219074_AnotherContactTableUpdate.designer.cs">
-      <DependentUpon>202111260219074_AnotherContactTableUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111260229556_SmallUpdateToNotes.cs" />
-    <Compile Include="Migrations\202111260229556_SmallUpdateToNotes.designer.cs">
-      <DependentUpon>202111260229556_SmallUpdateToNotes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111260356333_UpdatingContactYetAgainWithForeignKeyElement.cs" />
-    <Compile Include="Migrations\202111260356333_UpdatingContactYetAgainWithForeignKeyElement.designer.cs">
-      <DependentUpon>202111260356333_UpdatingContactYetAgainWithForeignKeyElement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111272027330_TryingToAddNotesToContact.cs" />
-    <Compile Include="Migrations\202111272027330_TryingToAddNotesToContact.designer.cs">
-      <DependentUpon>202111272027330_TryingToAddNotesToContact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111272301325_FixingMyStupidNoteErrorAgain.cs" />
-    <Compile Include="Migrations\202111272301325_FixingMyStupidNoteErrorAgain.designer.cs">
-      <DependentUpon>202111272301325_FixingMyStupidNoteErrorAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111272314599_AnotherFrickenMigration.cs" />
-    <Compile Include="Migrations\202111272314599_AnotherFrickenMigration.designer.cs">
-      <DependentUpon>202111272314599_AnotherFrickenMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111272349133_SmallUpdateToContactAddingCustomerAccount.cs" />
-    <Compile Include="Migrations\202111272349133_SmallUpdateToContactAddingCustomerAccount.designer.cs">
-      <DependentUpon>202111272349133_SmallUpdateToContactAddingCustomerAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111280016566_SmallUpdateToNoteToAddForeignKey.cs" />
-    <Compile Include="Migrations\202111280016566_SmallUpdateToNoteToAddForeignKey.designer.cs">
-      <DependentUpon>202111280016566_SmallUpdateToNoteToAddForeignKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111280029268_FixingNoteTypo.cs" />
-    <Compile Include="Migrations\202111280029268_FixingNoteTypo.designer.cs">
-      <DependentUpon>202111280029268_FixingNoteTypo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111280101363_ChangesToCustomerAccount.cs" />
-    <Compile Include="Migrations\202111280101363_ChangesToCustomerAccount.designer.cs">
-      <DependentUpon>202111280101363_ChangesToCustomerAccount.cs</DependentUpon>
+    <Compile Include="Migrations\202111281423008_Restart.cs" />
+    <Compile Include="Migrations\202111281423008_Restart.designer.cs">
+      <DependentUpon>202111281423008_Restart.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AccountTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -183,56 +120,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111160038084_NewMigration.resx">
-      <DependentUpon>202111160038084_NewMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111211402514_ChangingContact.resx">
-      <DependentUpon>202111211402514_ChangingContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111211444402_UpdatedContactRequires.resx">
-      <DependentUpon>202111211444402_UpdatedContactRequires.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111231406396_UpdatedContactWithOwnerId.resx">
-      <DependentUpon>202111231406396_UpdatedContactWithOwnerId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111231434383_UpdatedContactPhoneNumberType.resx">
-      <DependentUpon>202111231434383_UpdatedContactPhoneNumberType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111231440111_UpdatedContactCreatedType.resx">
-      <DependentUpon>202111231440111_UpdatedContactCreatedType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111250257259_UpdatedContactNamespace.resx">
-      <DependentUpon>202111250257259_UpdatedContactNamespace.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111260219074_AnotherContactTableUpdate.resx">
-      <DependentUpon>202111260219074_AnotherContactTableUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111260229556_SmallUpdateToNotes.resx">
-      <DependentUpon>202111260229556_SmallUpdateToNotes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111260356333_UpdatingContactYetAgainWithForeignKeyElement.resx">
-      <DependentUpon>202111260356333_UpdatingContactYetAgainWithForeignKeyElement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111272027330_TryingToAddNotesToContact.resx">
-      <DependentUpon>202111272027330_TryingToAddNotesToContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111272301325_FixingMyStupidNoteErrorAgain.resx">
-      <DependentUpon>202111272301325_FixingMyStupidNoteErrorAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111272314599_AnotherFrickenMigration.resx">
-      <DependentUpon>202111272314599_AnotherFrickenMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111272349133_SmallUpdateToContactAddingCustomerAccount.resx">
-      <DependentUpon>202111272349133_SmallUpdateToContactAddingCustomerAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111280016566_SmallUpdateToNoteToAddForeignKey.resx">
-      <DependentUpon>202111280016566_SmallUpdateToNoteToAddForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111280029268_FixingNoteTypo.resx">
-      <DependentUpon>202111280029268_FixingNoteTypo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111280101363_ChangesToCustomerAccount.resx">
-      <DependentUpon>202111280101363_ChangesToCustomerAccount.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111281423008_Restart.resx">
+      <DependentUpon>202111281423008_Restart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
