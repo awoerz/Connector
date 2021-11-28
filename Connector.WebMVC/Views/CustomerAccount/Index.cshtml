@@ -4,36 +4,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table text-light">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerAccountId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td class="text-light">
-            @Html.DisplayFor(modelItem => item.CustomerAccountId)
-        </td>
-        <td class="text-light">
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light"}) |
-            @Html.ActionLink("Details", "Details", new { id = item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light" }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light" })
-        </td>
-    </tr>
-}
+<div class="d-flex justify-content-between my-5">
+    <h2>Customer Accounts</h2>
+    @Html.ActionLink("Create New +", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+</div>
 
-</table>
+
+<div class="container d-flex flex-wrap my-5">
+    <div class="row g-3" style="width: 100%">
+        @foreach (var item in Model)
+        {
+            <div class="col-3 col-sm-12 col-md-6 col-lg-4 col-xl-3 my-4">
+                <div class="card accent-color">
+                    <div class="card-body my-3">
+                        <h3 class="mb-5">@Html.DisplayFor(modelItem => item.Name)</h3>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
