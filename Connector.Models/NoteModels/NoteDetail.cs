@@ -16,5 +16,6 @@ namespace Connector.Models.NoteModels
         [Display(Name = "Date Edited")]
         public DateTimeOffset? Updated { get; set; }
         public int ContactId { get; set; }
+        public int CustomerAccountId { get; set; }
     }
 }

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Connector.Models.CustomerAccountModels.CustomerAccountListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table text-light">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerAccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="text-light">
+            @Html.DisplayFor(modelItem => item.CustomerAccountId)
+        </td>
+        <td class="text-light">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light"}) |
+            @Html.ActionLink("Details", "Details", new { id = item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light" })
+        </td>
+    </tr>
+}
+
+</table>

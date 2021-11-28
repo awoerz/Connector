@@ -48,6 +48,22 @@ namespace Connector.Services
             }
         }
 
+        public bool CreateNoteForCustomerAccount(int customerAccountId, NoteCreate model)
+        {
+            var entity = new Note()
+            {
+                Content = model.Content,
+                Created = DateTimeOffset.Now,
+                CustomerAccountId = customerAccountId
+            };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Notes.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         public int CreateNoteReturnId(NoteCreate model)
         {
             var entity = new Note()

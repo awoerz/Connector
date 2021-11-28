@@ -1,5 +1,6 @@
 ﻿using Connector.Data;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Connector.Models
@@ -19,6 +20,6 @@ namespace Connector.Models
         public DateTimeOffset? LastContacted { get; set; }
         [Display(Name = "Primary Contact Method")]
         public ContactMethod MyProperty { get; set; }
-        public IEquatable<Note> Notes { get; set; }
+        public IEnumerable<Note> Notes { get; set; }    
     }
 }

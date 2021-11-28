@@ -19,5 +19,6 @@ namespace Connector.Models
         public DateTimeOffset? LastContacted { get; set; }
         [Display(Name = "Primary Contact Method")]
         public ContactMethod MyProperty { get; set; }
+        public int CustomerAccountId { get; set; }
     }
 }

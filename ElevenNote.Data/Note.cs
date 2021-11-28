@@ -19,5 +19,10 @@ namespace Connector.Data
         [ForeignKey(nameof(Contact))]
         public int? ContactId { get; set; }
         public virtual Contact Contact { get; set; }
+
+        [ForeignKey(nameof(CustomerAccount))]
+        public int? CustomerAccountId { get; set; }
+        public virtual CustomerAccount CustomerAccount { get; set; }
+
     }
 }

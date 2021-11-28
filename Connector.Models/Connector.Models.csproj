@@ -61,7 +61,11 @@
     <Compile Include="ContactModels\ContactDetail.cs" />
     <Compile Include="ContactModels\ContactEdit.cs" />
     <Compile Include="ContactModels\ContactListItem.cs" />
-    <Compile Include="ContactModels\ContactNote.cs" />
+    <Compile Include="ContactModels\ContactSelect.cs" />
+    <Compile Include="CustomerAccountModels\CustomerAccountCreate.cs" />
+    <Compile Include="CustomerAccountModels\CustomerAccountDetail.cs" />
+    <Compile Include="CustomerAccountModels\CustomerAccountEdit.cs" />
+    <Compile Include="CustomerAccountModels\CustomerAccountListItem.cs" />
     <Compile Include="NoteModels\NoteCreate.cs" />
     <Compile Include="NoteModels\NoteDetail.cs" />
     <Compile Include="NoteModels\NoteEdit.cs" />

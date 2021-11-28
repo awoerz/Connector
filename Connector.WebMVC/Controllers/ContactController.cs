@@ -24,13 +24,11 @@ namespace Connector.WebMVC.Controllers
             var model = service.GetContacts();
             return View(model);
         }
-
         //GET
         public ActionResult Create()
         {
             return View();
         }
-
         //Create a Contact
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -53,14 +51,12 @@ namespace Connector.WebMVC.Controllers
 
             return View(model);
         }
-
         public ActionResult Details(int id)
         {
             var svc = CreateContactService();
             var model = svc.GetContactById(id);
             return View(model);
         }
-
         public ActionResult Edit(int id)
         {
             var service = CreateContactService();
@@ -102,6 +98,34 @@ namespace Connector.WebMVC.Controllers
             ModelState.AddModelError("", "Your contact could not be updated.");
             return View();
         }
+
+        public ActionResult AddContactToAccount()
+        {
+            return View(new ContactSelect());
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddContactToAccount(int id, ContactSelect model)
+        {
+            var service = CreateContactService();
+            ViewBag.Contacts = service.GetUnassignedToAccountContacts().Select(
+                c => new SelectListItem
+                {
+                    Text = c.Name,
+                    Value = c.ContactId.ToString()
+                }
+                );
+
+
+            if(service.AddAccountToContact(id, model))
+            {
+                TempData["SaveResult"] = "You contact was updated";
+                return RedirectToAction("Details", "Account", new { id = id });
+            }
+
+            ModelState.AddModelError("", "Your contact could not be updated.");
+            return View();
+        }
         
         public ActionResult AddingNoteToContact(int id)
         {
@@ -110,8 +134,7 @@ namespace Connector.WebMVC.Controllers
             var model = new NoteCreate();
             return View(model);
         }
-
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddingNoteToContact(int id, NoteCreate model)
@@ -122,7 +145,6 @@ namespace Connector.WebMVC.Controllers
             }
 
             var svc = CreateContactService();
-            var contact = svc.GetContactById(id);
 
             var userId = Guid.Parse(User.Identity.GetUserId());
             var noteService = new NoteService(userId);
@@ -139,7 +161,7 @@ namespace Connector.WebMVC.Controllers
 
             return View(model);
         }
-
+        
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -148,7 +170,7 @@ namespace Connector.WebMVC.Controllers
 
             return View(model);
         }
-
+        
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -161,7 +183,6 @@ namespace Connector.WebMVC.Controllers
             TempData["SaveResult"] = "Your contact was deleted";
             return RedirectToAction("Index");
         }
-
         private ContactService CreateContactService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

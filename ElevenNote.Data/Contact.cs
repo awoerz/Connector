@@ -34,7 +34,7 @@ namespace Connector.Data
         public ICollection<Note> Notes { get; set; }
         
         [ForeignKey(nameof(CustomerAccount))]
-        public int CustomerAccountId { get; set; }
+        public int? CustomerAccountId { get; set; }
         public virtual CustomerAccount CustomerAccount { get; set; }
     }
 }

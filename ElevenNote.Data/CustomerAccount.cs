@@ -10,5 +10,11 @@ namespace Connector.Data
 {
     public class CustomerAccount
     {
+        [Key]
+        public int CustomerAccountId { get; set; }
+        [Required]
+        public string Name { get; set; }
+        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<Note> Notes { get; set; }
     }
 }

@@ -67,6 +67,24 @@ namespace Connector.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult CreateForAccount(int id, NoteCreate model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = CreateNoteService();
+
+            if (service.CreateNoteForCustomerAccount(id, model))
+            {
+                TempData["SaveResult"] = "Your note was created.";
+                return RedirectToAction("Details", "CustomerAccount", new { id = id });
+            }
+
+            ModelState.AddModelError("", "Your not could not be created.");
+            return View(model);
+        }
 
         private NoteService CreateNoteService()
         {

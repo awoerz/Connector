@@ -112,6 +112,22 @@
     <Compile Include="Migrations\202111272314599_AnotherFrickenMigration.designer.cs">
       <DependentUpon>202111272314599_AnotherFrickenMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111272349133_SmallUpdateToContactAddingCustomerAccount.cs" />
+    <Compile Include="Migrations\202111272349133_SmallUpdateToContactAddingCustomerAccount.designer.cs">
+      <DependentUpon>202111272349133_SmallUpdateToContactAddingCustomerAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111280016566_SmallUpdateToNoteToAddForeignKey.cs" />
+    <Compile Include="Migrations\202111280016566_SmallUpdateToNoteToAddForeignKey.designer.cs">
+      <DependentUpon>202111280016566_SmallUpdateToNoteToAddForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111280029268_FixingNoteTypo.cs" />
+    <Compile Include="Migrations\202111280029268_FixingNoteTypo.designer.cs">
+      <DependentUpon>202111280029268_FixingNoteTypo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111280101363_ChangesToCustomerAccount.cs" />
+    <Compile Include="Migrations\202111280101363_ChangesToCustomerAccount.designer.cs">
+      <DependentUpon>202111280101363_ChangesToCustomerAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -205,6 +221,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111272314599_AnotherFrickenMigration.resx">
       <DependentUpon>202111272314599_AnotherFrickenMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111272349133_SmallUpdateToContactAddingCustomerAccount.resx">
+      <DependentUpon>202111272349133_SmallUpdateToContactAddingCustomerAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111280016566_SmallUpdateToNoteToAddForeignKey.resx">
+      <DependentUpon>202111280016566_SmallUpdateToNoteToAddForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111280029268_FixingNoteTypo.resx">
+      <DependentUpon>202111280029268_FixingNoteTypo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111280101363_ChangesToCustomerAccount.resx">
+      <DependentUpon>202111280101363_ChangesToCustomerAccount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

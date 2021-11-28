@@ -1,7 +1,7 @@
 ﻿using Connector.Data;
 using Connector.Models;
+using Connector.Models.ContactModels;
 using Connector.Models.NoteModels;
-using ElevenNote.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +13,10 @@ namespace Connector.Services
     public class ContactService
     {
         private readonly Guid _userId;
-
         public ContactService(Guid userId)
         {
             _userId = userId;
         }
-
         public bool CreateContact(ContactCreate model)
         {
             var entity = new Contact()
@@ -38,7 +36,6 @@ namespace Connector.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
         public IEnumerable<ContactListItem> GetContacts()
         {
             using (var ctx = new ApplicationDbContext())
@@ -58,7 +55,38 @@ namespace Connector.Services
                 return query.ToArray();
             }
         }
-    
+        
+        public IEnumerable<ContactListItem> GetUnassignedToAccountContacts()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Contacts.Where(e => e.CustomerAccountId == null).Select(
+                    e=> new ContactListItem
+                    {
+                        ContactId = e.ContactId,
+                        Name = e.Name,
+                        Email = e.Email,
+                        PhoneNumber = e.PhoneNumber,
+                        Created = e.Created,
+                        MyProperty = e.MyProperty
+                    }
+                );
+                return query.ToArray();
+            }
+        }
+
+        public bool AddAccountToContact(int customerAccountId, ContactSelect model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Contacts.Single(e => e.ContactId == model.ContactId);
+                entity.CustomerAccountId = customerAccountId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+
         public ContactDetail GetContactById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -87,8 +115,7 @@ namespace Connector.Services
                     MyProperty = entity.MyProperty
                 };
             }
-        }
-
+        }   
         public bool UpdateContact(ContactEdit model)
         {
             using(var ctx = new ApplicationDbContext())
@@ -106,7 +133,6 @@ namespace Connector.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
         public bool AddNote(int contactId, int noteId)
         {
             using(var ctx = new ApplicationDbContext())

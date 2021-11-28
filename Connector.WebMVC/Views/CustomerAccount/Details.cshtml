@@ -1,0 +1,56 @@
+﻿@model Connector.Models.CustomerAccountModels.CustomerAccountDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Customer Acocunt Details</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table table-striped table-hover text-light my-3">
+    <thead>
+        <tr>
+            <th scope="col">
+                Note
+            </th>
+            <th scope="col">
+                Created
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Notes != null)
+        {
+            foreach (var item in Model.Notes)
+            {
+                <tr>
+                    <td class="text-light">
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+                    <td class="text-light">
+                        @Html.DisplayFor(modelItem => item.Created)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Add Note", "CreateForAccount", "Note", new { id = Model.CustomerAccountId }, htmlAttributes: new { @class = "btn btn-outline-light mb-4" })
+@Html.ActionLink("Add Contact", "AddContactToAccount", "Contact", new { customerAccountId = Model.CustomerAccountId}, htmlAttributes: new { @class = "btn btn-outline-light mb-4" })
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerAccountId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -172,6 +172,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CustomerAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
@@ -286,6 +287,14 @@
     <Content Include="Views\Note\CreateForContact.cshtml" />
     <Content Include="Views\Contact\Details.cshtml" />
     <Content Include="Views\Contact\AddingNoteToContact.cshtml" />
+    <Content Include="Views\CustomerAccount\Index.cshtml" />
+    <Content Include="Views\CustomerAccount\Create.cshtml" />
+    <Content Include="Views\CustomerAccount\Details.cshtml" />
+    <Content Include="Views\CustomerAccount\Edit.cshtml" />
+    <Content Include="Views\CustomerAccount\AddingNoteToCustomerAccount.cshtml" />
+    <Content Include="Views\CustomerAccount\Delete.cshtml" />
+    <Content Include="Views\Note\CreateForAccount.cshtml" />
+    <Content Include="Views\Contact\AddContactToAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
