@@ -79,17 +79,35 @@ namespace Connector.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool AccountTask(int id)
+        public bool ToggleAccountTaskComplete(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var task = ctx.AccountTasks.Single(e => e.TaskId == id);
+                if (!task.Completed)
+                {
+                    task.Completed = true;
+                }
+                else
+                {
+                    task.Completed = false;
+                };
+
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+        public bool DeleteTaskAccount(int accountTaskId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.AccountTasks.Single(
-                        e => e.TaskId == id
-                    );
+                    e => e.TaskId == accountTaskId
+                );
 
                 ctx.AccountTasks.Remove(entity);
                 return ctx.SaveChanges() == 1;
-            };
+            }
         }
     }
 }

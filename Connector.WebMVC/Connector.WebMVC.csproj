@@ -298,6 +298,7 @@
     <Content Include="Views\Contact\AddContactToAccount.cshtml" />
     <Content Include="Views\AccountTask\Index.cshtml" />
     <Content Include="Views\AccountTask\Create.cshtml" />
+    <Content Include="Views\AccountTask\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
