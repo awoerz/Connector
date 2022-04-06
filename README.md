@@ -6,7 +6,6 @@ A small and simple CRM
 - Ability to create, read, update, and delete customer accounts
 - Ability to create notes that are assigned to either contacts or accounts.
 - Ability to add contacts to accounts.
-
-##Features to be added:
-- Ability to create, read, update, and delete tasks.
-- Ability to assign accounts to tasks so that the task was business centric around an account.
+- Ability to create tasks
+- Ability to mark tasks completed or delete task
+- Ability to go to customer account detail veiw from specific task.
