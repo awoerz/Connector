@@ -15,10 +15,10 @@
 
 <div class="container text-light">
     <div class="row my-5">
-        <div class="col-md-6 d-flex justify-content-center px-5">
+        <div class="col-md-6 d-flex justify-content-center px-5 my-3">
             <img src="~/Content/images/contacts-img.svg" alt="contact-img" class="custom-img-size" />
         </div>
-        <div class="col-md-6 d-flex flex-column justify-content-center">
+        <div class="col-md-5 d-flex flex-column justify-content-center my-1">
             <h2>Manage Contacts</h2>
             <p>Create, update, and explore all your contacts here.</p>
             <div class="d-flex justify-content-start">
@@ -26,23 +26,23 @@
             </div>
         </div>
     </div>
-    <div class="row my-5 p-5">
-        <div class="col-md-6 d-flex flex-column justify-content-center align-items-end px-5">
-            <h2>Manage Customer Accounts</h2>
+    <div class="row my-5">
+        <div class="col-md-5 d-flex flex-column justify-content-center align-items-end px-5 my-3">
+            <h2 style="text-align: end">Manage <br/> Customer Accounts</h2>
             <p style="text-align: end">Never forget who needs your help by maintaining your customers here.</p>
             <div>
                 @Html.ActionLink("Accounts", "Index", "CustomerAccount", null, htmlAttributes: new { @class = "btn btn-outline-light" })
             </div>
         </div>
-        <div class="col-md-6 d-flex justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center px-5 my-3">
             <img src="~/Content/images/accounts-img.svg" alt="account-img" class="custom-img-size" />
         </div>
     </div>
     <div class="row my-5">
-        <div class="col-md-6 d-flex justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center my-3">
             <img src="~/Content/images/tasks-img.svg" alt="tasks-img" class="custom-img-size" />
         </div>
-        <div class="col-md-6 d-flex flex-column justify-content-center px-5">
+        <div class="col-md-6 d-flex flex-column justify-content-center px-5 my-3">
             <h2>Manage Tasks</h2>
             <p>Don't lose track of what you need to complete. Manage tasks here. </p>
             <div class="d-flex justify-content-start">
